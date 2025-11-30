@@ -11,7 +11,7 @@ const CarList: React.FC = () => {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/cars');
+                const response = await fetch('/api/cars');
                 if (!response.ok) {
                     throw new Error('Failed to fetch cars');
                 }

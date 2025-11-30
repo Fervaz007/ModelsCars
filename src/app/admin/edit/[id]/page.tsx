@@ -15,7 +15,7 @@ const EditCarPage = () => {
         if (id) {
             const fetchCar = async () => {
                 try {
-                    const response = await fetch(`http://localhost:3001/api/cars/${id}`);
+                    const response = await fetch(`/api/cars/${id}`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch car data');
                     }

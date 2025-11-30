@@ -32,7 +32,7 @@ const CarForm: React.FC<CarFormProps> = ({ car, isNew = false }) => {
 
         const carData = { brand, model, year: Number(year) };
 
-        const url = isNew ? 'http://localhost:3001/api/cars' : `http://localhost:3001/api/cars/${car.id}`;
+        const url = isNew ? '/api/cars' : `/api/cars/${car.id}`;
         const method = isNew ? 'POST' : 'PUT';
 
         try {

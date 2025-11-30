@@ -14,7 +14,7 @@ const CarTable: React.FC = () => {
     const fetchCars = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:3001/api/cars');
+            const response = await fetch('/api/cars');
             if (!response.ok) {
                 throw new Error('Failed to fetch cars');
             }
@@ -34,7 +34,7 @@ const CarTable: React.FC = () => {
     const handleDelete = async (id: number) => {
         if (confirm('Are you sure you want to delete this car?')) {
             try {
-                const response = await fetch(`http://localhost:3001/api/cars/${id}`, {
+                const response = await fetch(`/api/cars/${id}`, {
                     method: 'DELETE',
                 });
                 if (!response.ok) {

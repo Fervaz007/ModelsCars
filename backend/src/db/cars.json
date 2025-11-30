@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year": 2021
+  },
+  {
+    "id": 2,
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 2022
+  },
+  {
+    "id": 3,
+    "brand": "Honda",
+    "model": "Civic",
+    "year": 2023
+  },
+  {
+    "id": 4,
+    "brand": "Mitsubishi ",
+    "model": "Lancer ES 2.0",
+    "year": 2011
+  }
+]

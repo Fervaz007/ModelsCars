@@ -31,8 +31,8 @@ const writeCars = async (cars: Car[]): Promise<void> => {
 };
 
 // Get a single car by ID
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
-    const { id } = context.params;
+export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
     const cars = await readCars();
     const car = cars.find(c => c.id === parseInt(id));
     if (car) {
@@ -43,8 +43,8 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
 }
 
 // Update a car
-export async function PUT(req: NextRequest, context: { params: { id: string } }) {
-    const { id } = context.params;
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
     const body = await req.json();
     const cars = await readCars();
     const index = cars.findIndex(c => c.id === parseInt(id));
@@ -59,8 +59,8 @@ export async function PUT(req: NextRequest, context: { params: { id: string } })
 }
 
 // Delete a car
-export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
-    const { id } = context.params;
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
     let cars = await readCars();
     const initialLength = cars.length;
     cars = cars.filter(c => c.id !== parseInt(id));

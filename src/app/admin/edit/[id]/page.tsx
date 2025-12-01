@@ -22,7 +22,7 @@ const EditCarPage = () => {
                     const data = await response.json();
                     setCar(data);
                 } catch (err) {
-                    setError(err.message);
+                    setError(err instanceof Error ? err.message : "An error occurred");
                 } finally {
                     setLoading(false);
                 }

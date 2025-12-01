@@ -52,7 +52,7 @@ const CarForm: React.FC<CarFormProps> = ({ car, isNew = false }) => {
             router.push('/admin');
             router.refresh(); // Refresh server components
         } catch (error) {
-            alert(`Error: ${error.message}`);
+            alert(`Error: ${error instanceof Error ? error.message : "An error occurred"}`);
         } finally {
             setIsSubmitting(false);
         }

@@ -18,7 +18,7 @@ const CarList: React.FC = () => {
                 const data = await response.json();
                 setCars(data);
             } catch (err) {
-                setError(err.message);
+                setError(err instanceof Error ? err.message : "An error occurred");
             } finally {
                 setLoading(false);
             }

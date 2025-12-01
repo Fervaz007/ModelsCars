@@ -1,5 +1,5 @@
 
-import {NextResponse} from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -31,7 +31,7 @@ const writeCars = async (cars: Car[]): Promise<void> => {
 };
 
 // Get a single car by ID
-export async function GET(req: Request, context: { params: { id: string } }) {
+export async function GET(req: NextRequest, context: { params: { id: string } }) {
     const { id } = context.params;
     const cars = await readCars();
     const car = cars.find(c => c.id === parseInt(id));
@@ -43,7 +43,7 @@ export async function GET(req: Request, context: { params: { id: string } }) {
 }
 
 // Update a car
-export async function PUT(req: Request, context: { params: { id: string } }) {
+export async function PUT(req: NextRequest, context: { params: { id: string } }) {
     const { id } = context.params;
     const body = await req.json();
     const cars = await readCars();
@@ -59,7 +59,7 @@ export async function PUT(req: Request, context: { params: { id: string } }) {
 }
 
 // Delete a car
-export async function DELETE(req: Request, context: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
     const { id } = context.params;
     let cars = await readCars();
     const initialLength = cars.length;
